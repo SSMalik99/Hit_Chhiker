@@ -10,12 +10,12 @@ import {
   Dimensions,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import Icon from "@expo/vector-icons/FontAwesome";
+// import Icon from "@expo/vector-icons/FontAwesome";
 import AppHeader from "../components/AppHeader";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
-import { loadAsync, useFonts } from "expo-font";
-
+// import { loadAsync, useFonts } from "expo-font";
+import { FontAwesomeIcon as Icon } from "@fortawesome/react-native-fontawesome";
 const styles = StyleSheet.create({
   main_container: {
     backgroundColor: "#128892",
