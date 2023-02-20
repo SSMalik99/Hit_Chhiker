@@ -14,9 +14,10 @@ import { useNavigation } from "@react-navigation/native";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
-import { Entypo } from "@expo/vector-icons";
+
 
 import MapView from "react-native-maps";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 export default function Search({ userData }) {
   const navigation = useNavigation();
@@ -40,7 +41,7 @@ export default function Search({ userData }) {
           <View testID="location_container">
             <View style={styles.search_container}>
               <Text>
-                <Entypo name="location-pin" size={30} color="black" />
+                <FontAwesomeIcon icon="location-pin" size={30} color="black" />
               </Text>
               <TextInput
                 style={styles.search_input}
@@ -50,7 +51,7 @@ export default function Search({ userData }) {
 
             <View style={styles.search_container}>
               <Text>
-                <Entypo name="location" size={30} color="black" />
+                <FontAwesomeIcon icon="location" size={30} color="black" />
               </Text>
               <TextInput
                 style={styles.search_input}

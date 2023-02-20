@@ -11,7 +11,7 @@ import {
 } from "react-native";
 
 import { useNavigation, useRoute } from "@react-navigation/native";
-import Icon from "@expo/vector-icons/FontAwesome";
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../components/AppHeader";
 import Users from "../Mock/Users";
@@ -195,7 +195,8 @@ export default function Login() {
       <StatusBar style="auto" />
       <View style={styles.inputView}>
         <View style={styles.iconContainer}>
-          <Icon name="user-circle-o" style={[styles.icon, styles.userIcon]}></Icon>
+          <FontAwesomeIcon icon="user-circle-o" />
+          {/* style={[styles.icon, styles.userIcon]} */}
         </View>
         <TextInput
           style={styles.TextInput}
@@ -207,7 +208,8 @@ export default function Login() {
 
       <View style={styles.inputView}>
         <View style={styles.iconContainer}>
-          <Icon name="lock" style={styles.icon}></Icon>
+          {/* To DO Need to update to font awesome */}
+          {/* <Icon name="lock" style={styles.icon}></Icon> */}
         </View>
         <TextInput
           style={styles.TextInput}
@@ -216,7 +218,8 @@ export default function Login() {
           secureTextEntry={hidePassword}
           onChangeText={(password) => setPassword(password)}
         />
-        <Icon name={hidePassword ? "eye" : "eye-slash"} onPress={() => setPasswordHideFlag(!hidePassword)}></Icon>
+        {/* To DO Need to update to font awesome */}
+        {/* <Icon name={hidePassword ? "eye" : "eye-slash"} onPress={() => setPasswordHideFlag(!hidePassword)}></Icon> */}
       </View>
 
       <TouchableOpacity style={styles.loginBtn} onPress={() => {

@@ -2,8 +2,9 @@ import { Button, StyleSheet, Text, View, Image, Pressable } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
-import { AntDesign } from '@expo/vector-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import AppFooter from '../components/Footer';
+
 
 
 export default function Home() {
@@ -38,13 +39,15 @@ export default function Home() {
                         Get Started
                         
                     </Text>
-                    <AntDesign name="arrowright" style={
+                    {/* <AntDesign name="arrowright" style={
                         {
                             // fontFamily:'Abel_400Regular',
                             paddingTop:2,
                             marginLeft:3
                         }
-                    } size={16} color="white" />
+                    } size={16} color="white" /> */}
+                    
+                    <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
                 </Pressable>
                 
                 </View>

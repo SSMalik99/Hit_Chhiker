@@ -18,7 +18,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 
 import React from "react";
-import Icon from "@expo/vector-icons/FontAwesome";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+
 
 const Setting = ({userData}) => {
   // useFonts({
@@ -33,10 +34,10 @@ const Setting = ({userData}) => {
         {/* <AppHeader includeLogin={false} /> */}
         <View style={styles.wrapper}>
           <View style={styles.ride_external_row}>
-            <Icon
-              name="user-circle-o"
-              style={[styles.icon, styles.userIcon, styles.iconContainer]}
-            ></Icon>
+            <FontAwesomeIcon
+              icon="user-circle-o"
+              // style={[styles.icon, styles.userIcon, styles.iconContainer]}
+            />
             <View>
               <Text style={styles.ride_text}>User Info</Text>
               <Text style={styles.ride_text1}>{userData.fullName}, {userData.email} etc.</Text>
@@ -44,10 +45,10 @@ const Setting = ({userData}) => {
           </View>
 
           <View style={styles.ride_external_row}>
-            <Icon
-              name="gear"
-              style={[styles.icon, styles.userIcon, styles.iconContainer]}
-            ></Icon>
+            <FontAwesomeIcon
+              icon="gear"
+              // style={[styles.icon, styles.userIcon, styles.iconContainer]}
+            /> 
             <View>
               <Text style={styles.ride_text}>Privacy settings</Text>
               <Text style={styles.ride_text1}>
@@ -57,10 +58,10 @@ const Setting = ({userData}) => {
           </View>
 
           <View style={styles.ride_external_row}>
-            <Icon
-              name="lock"
-              style={[styles.icon, styles.userIcon, styles.iconContainer]}
-            ></Icon>
+            <FontAwesomeIcon
+              icon="lock"
+              // style={[styles.icon, styles.userIcon, styles.iconContainer]}
+            />
             <View>
               <Text style={styles.ride_text}>Privacy policy</Text>
               <Text style={styles.ride_text1}>policy info in detail</Text>
@@ -68,10 +69,10 @@ const Setting = ({userData}) => {
           </View>
 
           <View style={styles.ride_external_row}>
-            <Icon
-              name="info"
-              style={[styles.icon, styles.userIcon, styles.iconContainer]}
-            ></Icon>
+            <FontAwesomeIcon
+              icon="info"
+              // style={[styles.icon, styles.userIcon, styles.iconContainer]}
+            />
             <View>
               <Text style={styles.ride_text}>About us</Text>
               <Text style={styles.ride_text1}>
@@ -81,10 +82,10 @@ const Setting = ({userData}) => {
           </View>
 
           <View style={styles.ride_external_row}>
-            <Icon
-              name="question"
-              style={[styles.icon, styles.userIcon, styles.iconContainer]}
-            ></Icon>
+            <FontAwesomeIcon
+              icon="question"
+              // style={[styles.icon, styles.userIcon, styles.iconContainer]}
+            />
             <View>
               <Text style={styles.ride_text}>Help</Text>
               <Text style={styles.ride_text1}>user help , query etc.</Text>

@@ -5,7 +5,7 @@ import {
   useRoute,
 } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -13,7 +13,6 @@ import Search from "./Search";
 import Profile from "./Profile";
 import Setting from "./Setting";
 
-import { RotateInUpLeft } from "react-native-reanimated";
 import { userData } from "./Login";
 
 // const Drawer = createDrawerNavigator()
@@ -37,7 +36,7 @@ export default function MainTab() {
         options={{
           title: "Search Your Ride",
           tabBarIcon: ({ color }) => (
-            <FontAwesome5 name="search" size={24} color={color} />
+            <FontAwesomeIcon icon="search" size={24} color={color} />
           ),
         }}
       >
@@ -51,7 +50,7 @@ export default function MainTab() {
         options={{
           title: "Profile",
           tabBarIcon: ({ color }) => (
-            <AntDesign name="profile" size={24} color={color} />
+            <FontAwesomeIcon icon="profile" size={24} color={color} />
           ),
         }}
       >
@@ -64,7 +63,7 @@ export default function MainTab() {
         options={{
           title: "Setting",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="settings" size={24} color={color} />
+            <FontAwesomeIcon icon="settings" size={24} color={color} />
           ),
         }}
       >

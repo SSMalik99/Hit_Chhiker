@@ -15,6 +15,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import React from "react";
 import Icon from "react-native-vector-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 
 export default function Profile({ userData }) {
@@ -39,7 +40,7 @@ export default function Profile({ userData }) {
 
         <View style={styles.main_wrapper}>
           <View style={styles.ride_external_row_icon}>
-            <Icon name="user-circle-o" style={[styles.icon2]}></Icon>
+            <FontAwesomeIcon icon="user-circle-o"  style={[styles.icon2]} />
           </View>
           <View style={styles.ride_external_row1}>
             <Text style={styles.ride_text2}>{userData.username} </Text>
@@ -55,29 +56,29 @@ export default function Profile({ userData }) {
         <View style={styles.wrapper}>
           <View style={styles.ride_external_row}>
             <Text style={styles.ride_text}>Contact Information:</Text>
-            <Icon name="pencil" style={[styles.icon]}></Icon>
+            <FontAwesomeIcon icon="pencil" style={[styles.icon]} />
           </View>
 
           <View style={styles.ride_external_row}>
-            <Icon name="phone" style={[styles.userIcon]}></Icon>
+            <FontAwesomeIcon icon="phone" style={[styles.userIcon]} />
             <View>
               <Text style={styles.ride_text}>{userData.phone}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
-            <Icon name="whatsapp" style={[styles.userIcon]}></Icon>
+            <FontAwesomeIcon icon="whatsapp" style={[styles.userIcon]} />
             <View>
               <Text style={styles.ride_text}>{userData.phone}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
-            <Icon name="envelope" style={[styles.userIcon]}></Icon>
+            <FontAwesomeIcon icon="envelope" style={[styles.userIcon]} />
             <View>
               <Text style={styles.ride_text}>{userData.email}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
-            <Icon name="car" style={[styles.userIcon]}></Icon>
+            <FontAwesomeIcon icon="car" style={[styles.userIcon]} />
             <View>
               <Text style={styles.ride_text}>Your Ride</Text>
             </View>
