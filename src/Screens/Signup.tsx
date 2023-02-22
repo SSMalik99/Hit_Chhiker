@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -16,6 +16,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 // import { loadAsync, useFonts } from "expo-font";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-native-fontawesome";
+import auth from '@react-native-firebase/auth';
+
 const styles = StyleSheet.create({
   main_container: {
     backgroundColor: "#128892",
@@ -132,7 +134,6 @@ export default function Signup() {
   const [hidePassword, setPasswordHideFlag] = useState<boolean>(true);
   const [hideConfirmPassword, setConfirmPasswordHideFlag] =
     useState<boolean>(true);
-
   const navigation = useNavigation();
   const onSignup = () => {
     if (username && email && password && confirmPassword) {
@@ -140,6 +141,22 @@ export default function Signup() {
         alert("Password and ConfirmPassword field should match");
         return;
       }
+      auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      console.log('User account created & signed in!');
+    })
+    .catch(error => {
+      if (error.code === 'auth/email-already-in-use') {
+        console.log('That email address is already in use!');
+      }
+  
+      if (error.code === 'auth/invalid-email') {
+        console.log('That email address is invalid!');
+      }
+  
+      console.error(error);
+    });
       navigation.navigate(
         "Login" as never,
         {
