@@ -15,6 +15,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../components/AppHeader";
 import Users from "../Mock/Users";
+import auth from '@react-native-firebase/auth';
+
 
 const styles = StyleSheet.create({
   main_container:{
@@ -134,55 +136,81 @@ export default function Login() {
     return Users.find(user => user.email === email && user.password == password)
     
   }
-  
+
+
   const onLogin = () => {
-    if(!email && !password) {
-      alert('Please enter username and password to login')
-      return
+    if (!email && !password) {
+      alert('Please enter username and password to login');
+      return;
     }
-
-    // whether user is re
-    let mockedUser = checkMockedUser(email, password)
-
-    if (
-      (
-        (email === route?.params?.email || 
-          email === route?.params?.username
-          )&& 
-        password === route?.params?.password 
-        && mockedUser == undefined
-      ) || mockedUser != undefined) {
-
-      let userData = {}
-
-      if (mockedUser != undefined) {
-        userData = mockedUser
-
-      }else {
-        userData = {
-          fullName: route?.params?.fullName,
-          username: route?.params?.username,
-          email: route?.params?.email,
-          phone: route?.params?.phone 
-        }
-      }
-      navigation.reset({
-        index:0,
-        routes:[
-          {
-            name:"MainTab",
-            params:userData
-          }
-        ]
+  
+    auth().signInWithEmailAndPassword(email, password)
+      .then(() => {
+        navigation.reset({
+          index: 0,
+          routes: [
+            {
+              name: "MainTab",
+              params: { email, password },
+            },
+          ],
+        });
       })
-      // navigation.navigate("MainTab" as never, 
-      // {
+      .catch((error) => {
+        alert('The username/email or password you entered did not match our records');
+      });
+  };
+  
+
+  
+  // const onLogin = () => {
+  //   if(!email && !password) {
+  //     alert('Please enter username and password to login')
+  //     return
+  //   }
+
+  //   // whether user is re
+  //   let mockedUser = checkMockedUser(email, password)
+
+  //   if (
+  //     (
+  //       (email === route?.params?.email || 
+  //         email === route?.params?.username
+  //         )&& 
+  //       password === route?.params?.password 
+  //       && mockedUser == undefined
+  //     ) || mockedUser != undefined) {
+
+  //     let userData = {}
+
+  //     if (mockedUser != undefined) {
+  //       userData = mockedUser
+
+  //     }else {
+  //       userData = {
+  //         fullName: route?.params?.fullName,
+  //         username: route?.params?.username,
+  //         email: route?.params?.email,
+  //         phone: route?.params?.phone 
+  //       }
+  //     }
+  //     navigation.reset({
+  //       index:0,
+  //       routes:[
+  //         {
+  //           name:"MainTab",
+  //           params:userData
+  //         }
+  //       ]
+  //     })
+  //     // navigation.navigate("MainTab" as never, 
+  //     // {
             
-      // }as never);
-    } else {
-      alert('The username/email or password you entered did not match our records')
-    }
-  }
+  //     // }as never);
+  //   } else {
+  //     alert('The username/email or password you entered did not match our records')
+  //   }
+  // }
 
   return (
     <SafeAreaView style={styles.main_container}>
