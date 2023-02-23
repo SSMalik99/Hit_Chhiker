@@ -240,6 +240,7 @@ export default function Signup() {
               onChangeText={value => setEmail(value)}
               autoCapitalize="none"
               autoCorrect={false}
+              keyboardType="email-address"
             />
           </View>
 

@@ -231,6 +231,9 @@ export default function Login() {
             style={styles.TextInput}
             placeholder="Username or Email."
             placeholderTextColor="#003f5c"
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="email-address"
             onChangeText={email => setEmail(email)}
           />
         </View>
