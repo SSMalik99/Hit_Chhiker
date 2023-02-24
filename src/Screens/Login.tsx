@@ -16,6 +16,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AppHeader from "../components/AppHeader";
 import Users from "../Mock/Users";
 import auth from '@react-native-firebase/auth';
+import { Alert } from "react-native";
 
 
 const styles = StyleSheet.create({
@@ -140,7 +141,7 @@ export default function Login() {
 
   const onLogin = () => {
     if (!email && !password) {
-      alert('Please enter username and password to login');
+      Alert.alert('Please enter username and password to login');
       return;
     }
   
@@ -157,7 +158,7 @@ export default function Login() {
         });
       })
       .catch((error) => {
-        alert('The username/email or password you entered did not match our records');
+        Alert.alert('The username/email or password you entered did not match our records');
       });
   };
   
