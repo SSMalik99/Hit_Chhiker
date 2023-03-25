@@ -12,10 +12,18 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native-gesture-handler';
-import {FontAwesomeIcon as Icon} from '@fortawesome/react-native-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {validateEmail} from '../helpers';
 import {UserAuthentication} from '../models/user.model';
 import {signUpUser} from '../services/user.service';
+import {
+  faUserCircle,
+  faEnvelope,
+  faContactBook,
+  faClock,
+  faEye,
+  faEyeSlash,
+} from '@fortawesome/free-regular-svg-icons';
 
 const styles = StyleSheet.create({
   main_container: {
@@ -55,13 +63,6 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
 
-  icon: {
-    fontSize: 32,
-  },
-
-  userIcon: {
-    fontSize: 28,
-  },
   TextInput: {
     width: '100%',
     height: 50,
@@ -71,7 +72,6 @@ const styles = StyleSheet.create({
     color: 'white',
     borderBottomWidth: 1,
     borderBottomColor: 'black',
-    // fontFamily:"Abel_400Regular"
   },
 
   btn_container: {
@@ -93,11 +93,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
-    // fontFamily:"Abel_400Regular"
-  },
-
-  signup_button_text: {
-    // fontFamily:"Abel_400Regular"
   },
 
   forgot_button: {
@@ -199,10 +194,7 @@ export default function Signup() {
           <StatusBar style="auto" />
           <View style={styles.inputView}>
             <View style={styles.iconContainer}>
-              <Icon
-                name="user-circle-o"
-                style={[styles.icon, styles.userIcon]}
-              />
+              <FontAwesomeIcon icon={faUserCircle} size={28} />
             </View>
             <TextInput
               style={styles.TextInput}
@@ -213,10 +205,7 @@ export default function Signup() {
           </View>
           <View style={styles.inputView}>
             <View style={styles.iconContainer}>
-              <Icon
-                name="user-circle-o"
-                style={[styles.icon, styles.userIcon]}
-              />
+              <FontAwesomeIcon size={28} icon={faUserCircle} />
             </View>
             <TextInput
               style={styles.TextInput}
@@ -228,7 +217,7 @@ export default function Signup() {
 
           <View style={styles.inputView}>
             <View style={styles.iconContainer}>
-              <Icon name="envelope" style={[styles.icon, styles.userIcon]} />
+              <FontAwesomeIcon icon={faEnvelope} size={28} />
             </View>
             <TextInput
               style={styles.TextInput}
@@ -243,7 +232,7 @@ export default function Signup() {
 
           <View style={styles.inputView}>
             <View style={styles.iconContainer}>
-              <Icon name="phone" style={[styles.icon, styles.userIcon]} />
+              <FontAwesomeIcon icon={faContactBook} size={28} />
             </View>
             <TextInput
               style={styles.TextInput}
@@ -256,7 +245,7 @@ export default function Signup() {
 
           <View style={styles.inputView}>
             <View style={styles.iconContainer}>
-              <Icon name="lock" style={[styles.icon]} />
+              <FontAwesomeIcon icon={faClock} />
             </View>
             <TextInput
               style={styles.TextInput}
@@ -265,15 +254,15 @@ export default function Signup() {
               secureTextEntry={hidePassword}
               onChangeText={value => setPassword(value)}
             />
-            <Icon
-              name={hidePassword ? 'eye' : 'eye-slash'}
-              onPress={() => setPasswordHideFlag(!hidePassword)}
-            />
+            <TouchableOpacity
+              onPress={() => setPasswordHideFlag(!hidePassword)}>
+              <FontAwesomeIcon icon={hidePassword ? faEye : faEyeSlash} />
+            </TouchableOpacity>
           </View>
 
           <View style={styles.inputView}>
             <View style={styles.iconContainer}>
-              <Icon name="lock" style={[styles.icon]} />
+              <FontAwesomeIcon icon={faLock} />
             </View>
             <TextInput
               style={styles.TextInput}
@@ -284,10 +273,12 @@ export default function Signup() {
                 setConfirmPassword(confirmPassword)
               }
             />
-            <Icon
-              name={hideConfirmPassword ? 'eye' : 'eye-slash'}
-              onPress={() => setConfirmPasswordHideFlag(!hideConfirmPassword)}
-            />
+            <TouchableOpacity
+              onPress={() => setConfirmPasswordHideFlag(!hideConfirmPassword)}>
+              <FontAwesomeIcon
+                icon={hideConfirmPassword ? 'eye' : 'eye-slash'}
+              />
+            </TouchableOpacity>
           </View>
 
           <TouchableOpacity
@@ -299,7 +290,7 @@ export default function Signup() {
               //     routes:[{name:"MainTab"}]
               // })
             }}>
-            <Text style={styles.signup_button_text}>Sign Up</Text>
+            <Text>Sign Up</Text>
           </TouchableOpacity>
 
           <View style={styles.btn_container}>

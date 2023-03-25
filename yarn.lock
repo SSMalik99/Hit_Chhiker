@@ -1190,6 +1190,27 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "6.3.0"
 
+"@fortawesome/free-brands-svg-icons@^6.3.0":
+  "integrity" "sha512-xI0c+a8xnKItAXCN8rZgCNCJQiVAd2Y7p9e2ND6zN3J3ekneu96qrePieJ7yA7073C1JxxoM3vH1RU7rYsaj8w=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-6.3.0.tgz"
+  "version" "6.3.0"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.3.0"
+
+"@fortawesome/free-regular-svg-icons@^6.3.0":
+  "integrity" "sha512-cZnwiVHZ51SVzWHOaNCIA+u9wevZjCuAGSvSYpNlm6A4H4Vhwh8481Bf/5rwheIC3fFKlgXxLKaw8Xeroz8Ntg=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-6.3.0.tgz"
+  "version" "6.3.0"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.3.0"
+
+"@fortawesome/free-solid-svg-icons@^6.3.0":
+  "integrity" "sha512-x5tMwzF2lTH8pyv8yeZRodItP2IVlzzmBuD1M7BjawWgg9XAvktqJJ91Qjgoaf8qJpHQ8FEU9VxRfOkLhh86QA=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.3.0.tgz"
+  "version" "6.3.0"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.3.0"
+
 "@fortawesome/react-native-fontawesome@^0.3.0":
   "integrity" "sha512-wSfetdK4+b/pvPbM2v+bZ5hfNlwtk9l3QuJo59sbMrxJalfX7BuF2WsSIWMSxfWwSsbOtY4+TUs6uw/rE59NJA=="
   "resolved" "https://registry.npmjs.org/@fortawesome/react-native-fontawesome/-/react-native-fontawesome-0.3.0.tgz"
