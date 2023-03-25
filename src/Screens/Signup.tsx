@@ -1,5 +1,5 @@
 import {StatusBar} from 'expo-status-bar';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,10 +10,8 @@ import {
   Alert,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-// import Icon from "@expo/vector-icons/FontAwesome";
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native-gesture-handler';
-// import { loadAsync, useFonts } from "expo-font";
 import {FontAwesomeIcon as Icon} from '@fortawesome/react-native-fontawesome';
 import {validateEmail} from '../helpers';
 import {UserAuthentication} from '../models/user.model';
@@ -22,7 +20,6 @@ import {signUpUser} from '../services/user.service';
 const styles = StyleSheet.create({
   main_container: {
     backgroundColor: '#128892',
-    // height: Dimensions.get("window").height,
   },
   container: {
     flex: 1,

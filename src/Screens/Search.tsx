@@ -1,26 +1,15 @@
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Pressable,
-  Dimensions,
-} from "react-native";
-
+import {StyleSheet, Text, View, Dimensions} from 'react-native';
 
 // import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from "@react-navigation/native";
+import {useNavigation} from '@react-navigation/native';
 
-import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView, TextInput } from "react-native-gesture-handler";
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {ScrollView, TextInput} from 'react-native-gesture-handler';
 
+import MapView from 'react-native-maps';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 
-import MapView from "react-native-maps";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-
-export default function Search({ userData }) {
-  const navigation = useNavigation();
+export default function Search({userData}) {
   // loadAsync("Abel_400Regular").then((val) => {
   //   useFonts({
   //     val
@@ -29,7 +18,7 @@ export default function Search({ userData }) {
   // useFonts({
   //   Abel_400Regular
   // })
-  
+
   return (
     <SafeAreaView style={styles.main_container}>
       <ScrollView>
@@ -62,25 +51,22 @@ export default function Search({ userData }) {
             <View
               style={{
                 marginTop: 20,
-              }}
-            >
+              }}>
               <MapView style={styles.map} />
             </View>
 
             <ScrollView
               style={{
-                backgroundColor: "#128892",
+                backgroundColor: '#128892',
                 marginTop: 10,
                 borderRadius: 30,
                 padding: 8,
-              }}
-            >
+              }}>
               <View>
                 <View
                   style={{
                     padding: 2,
-                  }}
-                >
+                  }}>
                   <Text style={styles.ride_text}>User Name : John</Text>
 
                   <View style={styles.ride_internal_row}>
@@ -114,9 +100,8 @@ export default function Search({ userData }) {
                     padding: 2,
                     marginTop: 10,
                     borderTopWidth: 2,
-                    borderTopColor: "white",
-                  }}
-                >
+                    borderTopColor: 'white',
+                  }}>
                   <Text style={styles.ride_text}>User Name : John Junior</Text>
 
                   <View style={styles.ride_internal_row}>
@@ -155,48 +140,48 @@ export default function Search({ userData }) {
 
 const styles = StyleSheet.create({
   main_container: {
-    backgroundColor: "#128892",
+    backgroundColor: '#128892',
     // height: Dimensions.get("window").height,
   },
   wrapper: {
-    justifyContent: "center",
-    alignContent: "center",
+    justifyContent: 'center',
+    alignContent: 'center',
     // color:"#ffffff",
-    flexDirection: "row",
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#ffffff",
+    flexDirection: 'row',
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#ffffff',
     borderRadius: 50,
     marginTop: 30,
   },
   search_container: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignContent: 'center',
+    alignItems: 'center',
     marginTop: 10,
   },
   search_input: {
     marginTop: 10,
     borderBottomWidth: 2,
-    minWidth: "80%",
-    maxWidth: "80%",
-    overflow: "scroll",
+    minWidth: '80%',
+    maxWidth: '80%',
+    overflow: 'scroll',
     fontSize: 25,
-    borderBottomColor: "#000000",
+    borderBottomColor: '#000000',
     // fontFamily: "Abel_400Regular",
   },
   map: {
-    width: Dimensions.get("window").width,
+    width: Dimensions.get('window').width,
     height: 400,
   },
   ride_text: {
     fontSize: 20,
-    color: "#ffffff",
+    color: '#ffffff',
     // fontFamily: "Abel_400Regular",
   },
   ride_internal_row: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
 });

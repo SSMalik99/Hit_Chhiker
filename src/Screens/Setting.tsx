@@ -1,25 +1,18 @@
 import {
-  Button,
   StyleSheet,
   Text,
   View,
-  Image,
-  Pressable,
   Dimensions,
   TouchableOpacity,
   Alert,
-} from "react-native";
+} from 'react-native';
 
+import {useNavigation} from '@react-navigation/native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {ScrollView} from 'react-native-gesture-handler';
 
-// import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from "@react-navigation/native";
-import AppHeader from "../components/AppHeader";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView, TextInput } from "react-native-gesture-handler";
-
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-
+import React from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 
 const Setting = ({userData}) => {
   // useFonts({
@@ -40,7 +33,9 @@ const Setting = ({userData}) => {
             />
             <View>
               <Text style={styles.ride_text}>User Info</Text>
-              <Text style={styles.ride_text1}>{userData.fullName}, {userData.email} etc.</Text>
+              <Text style={styles.ride_text1}>
+                {userData.fullName}, {userData.email} etc.
+              </Text>
             </View>
           </View>
 
@@ -48,7 +43,7 @@ const Setting = ({userData}) => {
             <FontAwesomeIcon
               icon="gear"
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
-            /> 
+            />
             <View>
               <Text style={styles.ride_text}>Privacy settings</Text>
               <Text style={styles.ride_text1}>
@@ -91,56 +86,55 @@ const Setting = ({userData}) => {
               <Text style={styles.ride_text1}>user help , query etc.</Text>
             </View>
           </View>
-          <View style={{
-            display:'flex',
-            alignItems:"center",
-            justifyContent: "space-around",
-            // marginBottom: 20,
-            width:"80%",
-            marginStart: 20
-          }}>
+          <View
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-around',
+              // marginBottom: 20,
+              width: '80%',
+              marginStart: 20,
+            }}>
             <TouchableOpacity
               style={{
-                width: "100%",
+                width: '100%',
                 padding: 10,
                 borderRadius: 10,
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#128892",
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#128892',
               }}
               onPress={() => {
                 return Alert.alert(
-                  "Are your sure?",
-                  "Are you sure you want to logout?",
+                  'Are your sure?',
+                  'Are you sure you want to logout?',
                   [
                     // The "Yes" button
                     {
-                      text: "Yes",
+                      text: 'Yes',
                       onPress: () => {
                         navigation.reset({
-                          index:0,
-                          routes:[
+                          index: 0,
+                          routes: [
                             {
-                              name:"Login",
-                            }
-                          ]
-                        })
+                              name: 'Login',
+                            },
+                          ],
+                        });
                       },
                     },
                     // The "No" button
                     // Does nothing but dismiss the dialog when tapped
                     {
-                      text: "No",
+                      text: 'No',
                     },
-                  ]
+                  ],
                 );
-              }}
-            >
+              }}>
               <Text
                 style={{
-                  color: "white",
-                }}
-              >
+                  color: 'white',
+                }}>
                 Logout
               </Text>
             </TouchableOpacity>
@@ -153,17 +147,17 @@ const Setting = ({userData}) => {
 
 const styles = StyleSheet.create({
   main_container: {
-    backgroundColor: "#128892",
+    backgroundColor: '#128892',
     // height: Dimensions.get("window").height,
   },
   wrapper: {
     flex: 1,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    flexDirection: "column",
-    width: "100%",
-    height: Dimensions.get("window").height,
-    backgroundColor: "#ffffff",
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+    width: '100%',
+    height: Dimensions.get('window').height,
+    backgroundColor: '#ffffff',
     borderRadius: 20,
     marginTop: 50,
     paddingStart: 30,
@@ -179,30 +173,30 @@ const styles = StyleSheet.create({
     marginEnd: 10,
   },
   iconContainer: {
-    backgroundColor: "#ffffff",
+    backgroundColor: '#ffffff',
     height: 40,
     width: 50,
   },
   ride_text: {
     fontSize: 20,
-    color: "#000000",
+    color: '#000000',
     // fontFamily: "Abel_400Regular",
   },
   ride_text1: {
     fontSize: 15,
-    color: "#000000",
+    color: '#000000',
     // fontFamily: "Abel_400Regular",
   },
   ride_external_row: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginTop: 40,
     marginBottom: 20,
     marginStart: 20,
   },
   ride_internal_row: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
 
     marginStart: 60,
   },

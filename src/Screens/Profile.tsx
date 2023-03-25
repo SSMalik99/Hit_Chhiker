@@ -1,25 +1,11 @@
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Pressable,
-  Dimensions,
-} from "react-native";
+import {StyleSheet, Text, View, Dimensions} from 'react-native';
 
-// import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from "@react-navigation/native";
-import AppHeader from "../components/AppHeader";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView, TextInput } from "react-native-gesture-handler";
-import React from "react";
-import Icon from "react-native-vector-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {ScrollView} from 'react-native-gesture-handler';
+import React from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 
-
-export default function Profile({ userData }) {
-  const navigation = useNavigation();
+export default function Profile({userData}) {
   // loadAsync("Abel_400Regular").then((val) => {
   //   useFonts({
   //     val
@@ -40,7 +26,7 @@ export default function Profile({ userData }) {
 
         <View style={styles.main_wrapper}>
           <View style={styles.ride_external_row_icon}>
-            <FontAwesomeIcon icon="user-circle-o"  style={[styles.icon2]} />
+            <FontAwesomeIcon icon="user-circle-o" style={[styles.icon2]} />
           </View>
           <View style={styles.ride_external_row1}>
             <Text style={styles.ride_text2}>{userData.username} </Text>
@@ -91,17 +77,17 @@ export default function Profile({ userData }) {
 
 const styles = StyleSheet.create({
   main_container: {
-    backgroundColor: "#128892",
+    backgroundColor: '#128892',
     // height: Dimensions.get('window').height
   },
   wrapper: {
     flex: 1,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    flexDirection: "column",
-    width: "100%",
-    height: Dimensions.get("window").height,
-    backgroundColor: "#ffffff",
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+    width: '100%',
+    height: Dimensions.get('window').height,
+    backgroundColor: '#ffffff',
     borderRadius: 20,
     marginTop: 70,
     paddingStart: 15,
@@ -109,10 +95,10 @@ const styles = StyleSheet.create({
   },
   main_wrapper: {
     flex: 1,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    flexDirection: "column",
-    width: "100%",
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    flexDirection: 'column',
+    width: '100%',
     paddingStart: 30,
     paddingTop: 20,
   },
@@ -131,47 +117,47 @@ const styles = StyleSheet.create({
   },
   ride_text: {
     fontSize: 20,
-    color: "#000000",
+    color: '#000000',
     // fontFamily:"Abel_400Regular",
   },
   ride_text1: {
     fontSize: 15,
-    color: "#000000",
+    color: '#000000',
     // fontFamily:"Abel_400Regular",
   },
   ride_text2: {
     fontSize: 25,
-    color: "#ffffff",
+    color: '#ffffff',
     // fontFamily:"Abel_400Regular",
   },
   ride_text3: {
     fontSize: 17,
-    color: "#ffffff",
+    color: '#ffffff',
     // fontFamily:"Abel_400Regular",
   },
   ride_external_row_icon: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   ride_external_row: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginTop: 30,
     marginBottom: 20,
     marginStart: 20,
   },
   ride_external_row1: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginTop: 20,
   },
   ride_internal_row: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginStart: 60,
   },
   ride_top_row: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginTop: 30,
     marginBottom: 20,
     marginStart: 0,
