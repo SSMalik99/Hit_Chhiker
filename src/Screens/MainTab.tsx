@@ -7,14 +7,12 @@ import Profile from './Profile';
 import Setting from './Setting';
 
 import {userData} from './Login';
-
-// const Drawer = createDrawerNavigator()
+import {faGear, faSearch} from '@fortawesome/free-solid-svg-icons';
+import {faUserCircle} from '@fortawesome/free-regular-svg-icons';
 
 const Tab = createBottomTabNavigator();
 
 export default function MainTab() {
-  // loadAsync("Abel_400Regular").then((font)=> console.log(font))
-
   const route: any = useRoute();
 
   let userData: userData = route.params;
@@ -26,7 +24,7 @@ export default function MainTab() {
         options={{
           title: 'Search Your Ride',
           tabBarIcon: ({color}) => (
-            <FontAwesomeIcon icon="search" size={24} color={color} />
+            <FontAwesomeIcon icon={faSearch} size={24} color={color} />
           ),
         }}>
         {props => <Search {...props} userData={userData} />}
@@ -36,7 +34,7 @@ export default function MainTab() {
         options={{
           title: 'Profile',
           tabBarIcon: ({color}) => (
-            <FontAwesomeIcon icon="profile" size={24} color={color} />
+            <FontAwesomeIcon icon={faUserCircle} size={24} color={color} />
           ),
         }}>
         {props => <Profile {...props} userData={userData} />}
@@ -47,7 +45,7 @@ export default function MainTab() {
         options={{
           title: 'Setting',
           tabBarIcon: ({color}) => (
-            <FontAwesomeIcon icon="settings" size={24} color={color} />
+            <FontAwesomeIcon icon={faGear} size={24} color={color} />
           ),
         }}>
         {props => <Setting {...props} userData={userData} />}

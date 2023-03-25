@@ -12,11 +12,11 @@ import {
 } from 'react-native';
 
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {FontAwesomeIcon as Icon} from '@fortawesome/react-native-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {signIn} from '../services/user.service';
 import {UserAuthentication} from '../models/user.model';
+import {faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';
 
 const styles = StyleSheet.create({
   main_container: {
@@ -128,8 +128,6 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [hidePassword, setPasswordHideFlag] = useState(true);
   const navigation = useNavigation();
-
-  const route: any = useRoute();
 
   const onLogin = () => {
     if (!email && !password) {
@@ -250,10 +248,9 @@ export default function Login() {
             secureTextEntry={hidePassword}
             onChangeText={password => setPassword(password)}
           />
-          <Icon
-            name={hidePassword ? 'eye' : 'eye-slash'}
-            onPress={() => setPasswordHideFlag(!hidePassword)}
-          />
+          <TouchableOpacity onPress={() => setPasswordHideFlag(!hidePassword)}>
+            <FontAwesomeIcon icon={hidePassword ? faEye : faEyeSlash} />
+          </TouchableOpacity>
         </View>
 
         <TouchableOpacity
