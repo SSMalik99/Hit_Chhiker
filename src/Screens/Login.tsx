@@ -156,7 +156,10 @@ export default function Login() {
         });
       })
       .catch(error => {
-        Alert.alert(error);
+        console.log(error);
+        Alert.alert('Error', error.message, [{text: 'OK'}], {
+          cancelable: false,
+        });
       });
   };
 
