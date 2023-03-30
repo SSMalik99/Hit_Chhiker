@@ -8,6 +8,8 @@ import {ScrollView, TextInput} from 'react-native-gesture-handler';
 
 import MapView from 'react-native-maps';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import React from 'react';
+import {faLocation, faLocationPin} from '@fortawesome/free-solid-svg-icons';
 
 export default function Search({userData}) {
   // loadAsync("Abel_400Regular").then((val) => {
@@ -30,7 +32,7 @@ export default function Search({userData}) {
           <View testID="location_container">
             <View style={styles.search_container}>
               <Text>
-                <FontAwesomeIcon icon="location-pin" size={30} color="black" />
+                <FontAwesomeIcon icon={faLocationPin} size={30} color="black" />
               </Text>
               <TextInput
                 style={styles.search_input}
@@ -40,7 +42,7 @@ export default function Search({userData}) {
 
             <View style={styles.search_container}>
               <Text>
-                <FontAwesomeIcon icon="location" size={30} color="black" />
+                <FontAwesomeIcon icon={faLocation} size={30} color="black" />
               </Text>
               <TextInput
                 style={styles.search_input}

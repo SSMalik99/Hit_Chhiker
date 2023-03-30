@@ -9,6 +9,7 @@ import Setting from './Setting';
 import {userData} from './Login';
 import {faGear, faSearch} from '@fortawesome/free-solid-svg-icons';
 import {faUserCircle} from '@fortawesome/free-regular-svg-icons';
+import React from 'react';
 
 const Tab = createBottomTabNavigator();
 

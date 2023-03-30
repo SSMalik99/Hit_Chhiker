@@ -4,6 +4,9 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {ScrollView} from 'react-native-gesture-handler';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faEnvelope, faUserCircle} from '@fortawesome/free-regular-svg-icons';
+import {faCar, faPencil, faPhone} from '@fortawesome/free-solid-svg-icons';
+import {faWhatsapp} from '@fortawesome/free-brands-svg-icons';
 
 export default function Profile({userData}) {
   // loadAsync("Abel_400Regular").then((val) => {
@@ -26,7 +29,7 @@ export default function Profile({userData}) {
 
         <View style={styles.main_wrapper}>
           <View style={styles.ride_external_row_icon}>
-            <FontAwesomeIcon icon="user-circle-o" style={[styles.icon2]} />
+            <FontAwesomeIcon icon={faUserCircle} size={28} />
           </View>
           <View style={styles.ride_external_row1}>
             <Text style={styles.ride_text2}>{userData.username} </Text>
@@ -42,29 +45,29 @@ export default function Profile({userData}) {
         <View style={styles.wrapper}>
           <View style={styles.ride_external_row}>
             <Text style={styles.ride_text}>Contact Information:</Text>
-            <FontAwesomeIcon icon="pencil" style={[styles.icon]} />
+            <FontAwesomeIcon icon={faPencil} size={28} />
           </View>
 
           <View style={styles.ride_external_row}>
-            <FontAwesomeIcon icon="phone" style={[styles.userIcon]} />
+            <FontAwesomeIcon icon={faPhone} size={28} />
             <View>
               <Text style={styles.ride_text}>{userData.phone}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
-            <FontAwesomeIcon icon="whatsapp" style={[styles.userIcon]} />
+            <FontAwesomeIcon icon={faWhatsapp} size={28} />
             <View>
               <Text style={styles.ride_text}>{userData.phone}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
-            <FontAwesomeIcon icon="envelope" style={[styles.userIcon]} />
+            <FontAwesomeIcon icon={faEnvelope} size={28} />
             <View>
               <Text style={styles.ride_text}>{userData.email}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
-            <FontAwesomeIcon icon="car" style={[styles.userIcon]} />
+            <FontAwesomeIcon icon={faCar} size={28} />
             <View>
               <Text style={styles.ride_text}>Your Ride</Text>
             </View>

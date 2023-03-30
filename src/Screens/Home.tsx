@@ -4,6 +4,8 @@ import {useNavigation} from '@react-navigation/native';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import AppFooter from '../components/Footer';
+import React from 'react';
+import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   // loadAsync("Abel_400Regular").then((val) => {
@@ -40,7 +42,7 @@ export default function Home() {
                         }
                     } size={16} color="white" /> */}
 
-          <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
+          <FontAwesomeIcon icon={faArrowRight} />
         </Pressable>
       </View>
 
