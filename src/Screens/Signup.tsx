@@ -20,7 +20,6 @@ import {
   faUserCircle,
   faEnvelope,
   faContactBook,
-  faClock,
   faEye,
   faEyeSlash,
 } from '@fortawesome/free-regular-svg-icons';
@@ -246,7 +245,7 @@ export default function Signup() {
 
           <View style={styles.inputView}>
             <View style={styles.iconContainer}>
-              <FontAwesomeIcon icon={faClock} />
+              <FontAwesomeIcon icon={faLock} size={28} />
             </View>
             <TextInput
               style={styles.TextInput}
@@ -263,7 +262,7 @@ export default function Signup() {
 
           <View style={styles.inputView}>
             <View style={styles.iconContainer}>
-              <FontAwesomeIcon icon={faLock} />
+              <FontAwesomeIcon icon={faLock} size={28} />
             </View>
             <TextInput
               style={styles.TextInput}
@@ -277,7 +276,7 @@ export default function Signup() {
             <TouchableOpacity
               onPress={() => setConfirmPasswordHideFlag(!hideConfirmPassword)}>
               <FontAwesomeIcon
-                icon={hideConfirmPassword ? 'eye' : 'eye-slash'}
+                icon={hideConfirmPassword ? faEye : faEyeSlash}
               />
             </TouchableOpacity>
           </View>

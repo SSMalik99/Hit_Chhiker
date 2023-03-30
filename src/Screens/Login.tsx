@@ -11,12 +11,13 @@ import {
   Alert,
 } from 'react-native';
 
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {signIn} from '../services/user.service';
 import {UserAuthentication} from '../models/user.model';
 import {faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';
+import {faLock, faUserCircle} from '@fortawesome/free-solid-svg-icons';
 
 const styles = StyleSheet.create({
   main_container: {
@@ -222,8 +223,7 @@ export default function Login() {
         <StatusBar style="auto" />
         <View style={styles.inputView}>
           <View style={styles.iconContainer}>
-            <FontAwesomeIcon icon="user-circle" />
-            {/* style={[styles.icon, styles.userIcon]} */}
+            <FontAwesomeIcon icon={faUserCircle} size={28} />
           </View>
           <TextInput
             style={styles.TextInput}
@@ -238,8 +238,7 @@ export default function Login() {
 
         <View style={styles.inputView}>
           <View style={styles.iconContainer}>
-            {/* To DO Need to update to font awesome */}
-            {/* <Icon name="lock" style={styles.icon}></Icon> */}
+            <FontAwesomeIcon icon={faLock} size={28} />
           </View>
           <TextInput
             style={styles.TextInput}
