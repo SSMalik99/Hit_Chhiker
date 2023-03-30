@@ -13,6 +13,13 @@ import {ScrollView} from 'react-native-gesture-handler';
 
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {
+  faGear,
+  faInfo,
+  faLock,
+  faQuestion,
+  faUserCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Setting = ({userData}) => {
   // useFonts({
@@ -28,7 +35,7 @@ const Setting = ({userData}) => {
         <View style={styles.wrapper}>
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon
-              icon="user-circle-o"
+              icon={faUserCircle}
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
             <View>
@@ -41,7 +48,7 @@ const Setting = ({userData}) => {
 
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon
-              icon="gear"
+              icon={faGear}
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
             <View>
@@ -54,7 +61,7 @@ const Setting = ({userData}) => {
 
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon
-              icon="lock"
+              icon={faLock}
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
             <View>
@@ -65,7 +72,7 @@ const Setting = ({userData}) => {
 
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon
-              icon="info"
+              icon={faInfo}
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
             <View>
@@ -78,7 +85,7 @@ const Setting = ({userData}) => {
 
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon
-              icon="question"
+              icon={faQuestion}
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
             <View>
