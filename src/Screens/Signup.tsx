@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
 
   btn_container: {
     flexDirection: 'row',
-    marginTop: 35,
+    marginTop: 12,
   },
 
   link_btn: {
