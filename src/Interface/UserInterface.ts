@@ -9,7 +9,15 @@ export interface AppData {
   activeUser: User | undefined;
 }
 
-export interface UserAuthentication {
+export interface UserLoginInterFace {
   username: string;
   password: string;
+}
+
+
+export interface AuthenticationResponse  {
+  message : string | null;
+  success : boolean,
+  error : string | null
+
 }

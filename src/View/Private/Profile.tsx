@@ -8,7 +8,7 @@ import {faEnvelope, faUserCircle} from '@fortawesome/free-regular-svg-icons';
 import {faCar, faPencil, faPhone} from '@fortawesome/free-solid-svg-icons';
 import {faWhatsapp} from '@fortawesome/free-brands-svg-icons';
 
-export default function Profile({userData}) {
+export default function Profile() {
   // loadAsync("Abel_400Regular").then((val) => {
   //   useFonts({
   //     val
@@ -32,7 +32,7 @@ export default function Profile({userData}) {
             <FontAwesomeIcon icon={faUserCircle} size={28} />
           </View>
           <View style={styles.ride_external_row1}>
-            <Text style={styles.ride_text2}>{userData.username} </Text>
+            <Text style={styles.ride_text2}>{"userData.username"} </Text>
           </View>
           <View style={styles.ride_external_row1}>
             <Text style={styles.ride_text2}>About:</Text>
@@ -51,19 +51,19 @@ export default function Profile({userData}) {
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon icon={faPhone} size={28} />
             <View>
-              <Text style={styles.ride_text}>{userData.phone}</Text>
+              <Text style={styles.ride_text}>{"userData.phone"}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon icon={faWhatsapp} size={28} />
             <View>
-              <Text style={styles.ride_text}>{userData.phone}</Text>
+              <Text style={styles.ride_text}>{"userData.phone"}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon icon={faEnvelope} size={28} />
             <View>
-              <Text style={styles.ride_text}>{userData.email}</Text>
+              <Text style={styles.ride_text}>{"userData.email"}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>

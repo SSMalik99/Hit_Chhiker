@@ -20,11 +20,13 @@ import {
   faQuestion,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import UserController from '../../Controller/UserController';
 
-const Setting = ({userData}) => {
+const Setting = () => {
   // useFonts({
   //   Abel_400Regular,
   // });
+  const userController = new UserController()
 
   const navigation = useNavigation();
 
@@ -41,7 +43,7 @@ const Setting = ({userData}) => {
             <View>
               <Text style={styles.ride_text}>User Info</Text>
               <Text style={styles.ride_text1}>
-                {userData.fullName}, {userData.email} etc.
+                {"FUll Name"}, {"userData.email"} etc.
               </Text>
             </View>
           </View>
@@ -120,14 +122,8 @@ const Setting = ({userData}) => {
                     {
                       text: 'Yes',
                       onPress: () => {
-                        navigation.reset({
-                          index: 0,
-                          routes: [
-                            {
-                              name: 'Login',
-                            },
-                          ],
-                        });
+                        userController.signOut()
+                        
                       },
                     },
                     // The "No" button

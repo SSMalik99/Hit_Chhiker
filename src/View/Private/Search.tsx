@@ -11,7 +11,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React from 'react';
 import {faLocation, faLocationPin} from '@fortawesome/free-solid-svg-icons';
 
-export default function Search({userData}) {
+export default function Search() {
   // loadAsync("Abel_400Regular").then((val) => {
   //   useFonts({
   //     val
