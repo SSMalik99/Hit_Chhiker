@@ -18,7 +18,7 @@ export default function Home() {
         <View style={styles.logo_container}>
           <Image
             style={styles.logo}
-            source={require("../../../Assets/logo1.png")}
+            source={require("../../../assets/logo1.png")}
           />
         </View>
 
