@@ -3,46 +3,43 @@ import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import AppFooter from '../components/Footer';
+import AppFooter from '../../components/Footer';
 import React from 'react';
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
-  // loadAsync("Abel_400Regular").then((val) => {
-  //     useFonts({
-  //       val
-  //     });
-  // //   })
-  // useFonts({
-  //     Abel_400Regular
-  //   })
+ 
 
   const navigation = useNavigation();
-
+  
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
         <View style={styles.logo_container}>
           <Image
             style={styles.logo}
-            source={require('../../assets/logo1.png')}
+            source={require("../../../Assets/logo1.png")}
           />
         </View>
+
         <Pressable
           onPress={() => {
             navigation.navigate('Signup');
           }}
           style={styles.home_btn}>
           <Text style={styles.home_btn_text}>Get Started</Text>
-          {/* <AntDesign name="arrowright" style={
-                        {
-                            // fontFamily:'Abel_400Regular',
-                            paddingTop:2,
-                            marginLeft:3
-                        }
-                    } size={16} color="white" /> */}
 
-          <FontAwesomeIcon icon={faArrowRight} />
+          <FontAwesomeIcon 
+            icon={faArrowRight} 
+            color='white' 
+            style={
+              {
+                marginLeft : 3,
+                paddingTop: 2
+              }
+            } 
+            size={16}
+          />
         </Pressable>
       </View>
 
@@ -50,6 +47,9 @@ export default function Home() {
     </View>
   );
 }
+
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
