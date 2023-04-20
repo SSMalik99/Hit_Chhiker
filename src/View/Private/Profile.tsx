@@ -21,20 +21,33 @@ export default function Profile() {
 
   const [phoneNumber, setPhoneNumber] = useState( "Loading...")
   const [bio, setBio] = useState("Write about youself")
+  const [takenRides, setTakenRides] = useState(0)
+  const [givenRides, setGivenRides] = useState(0)
+
+
 
   const updateBio = async () => {
+
     let res = await userController.updateBio(bio)
     if(!res.success) {
       Alert.alert("Success", res.message)
     }else {
       Alert.alert("Error", res.message)
     }
+
   }
   useEffect( () => {
+
     const findUser = async () => {
       const user = await userController.getUserFromDb()
+      const rideData = await userController.getTotalRidesForUser()
+
       setPhoneNumber(user?.phoneNumber)
       setBio(user?.bio)
+
+      setTakenRides(rideData.requestedRide)
+      setGivenRides(rideData.totalRides)
+
       intialBio = user?.bio
     }
 
@@ -133,8 +146,8 @@ console.log(phoneNumber)
                   marginLeft: 10
                 }
               }>
-                <View><Text>Given : {0}</Text></View>
-                <View><Text>Taken : {0}</Text></View>
+                <View><Text>Given : {givenRides}</Text></View>
+                <View><Text>Taken : {takenRides}</Text></View>
               </View>
             </View>
           </View>

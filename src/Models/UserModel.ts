@@ -55,7 +55,7 @@ class UserModel {
      */
     async getTotalRidesForUser () {
         try {
-            const res = await axios.get(`https://lively-twill-lion.cyclic.app/users/totalRides`);
+            const res = await axios.get(`https://lively-twill-lion.cyclic.app/rides/ride_count/${auth().currentUser?.email}`);
             
             const responseData = res.data.data
             

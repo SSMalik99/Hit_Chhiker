@@ -21,12 +21,15 @@ import {
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import UserController from '../../Controller/UserController';
+import { useAuthUser } from '../../Context/UserContext';
 
 const Setting = () => {
   // useFonts({
   //   Abel_400Regular,
   // });
   const userController = new UserController()
+
+  const currentUser = useAuthUser()
 
   const navigation = useNavigation();
 
@@ -43,7 +46,7 @@ const Setting = () => {
             <View>
               <Text style={styles.ride_text}>User Info</Text>
               <Text style={styles.ride_text1}>
-                {"FUll Name"}, {"userData.email"} etc.
+                {currentUser?.displayName}, {currentUser?.email} etc.
               </Text>
             </View>
           </View>
@@ -55,7 +58,9 @@ const Setting = () => {
             />
             <View>
               <Text style={styles.ride_text}>Privacy settings</Text>
-              <Text style={styles.ride_text1}>
+              <Text style={styles.ride_text1} onPress={() => {
+                
+              }}>
                 profile personal details settings
               </Text>
             </View>

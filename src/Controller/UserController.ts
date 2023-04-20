@@ -197,8 +197,12 @@ class UserController {
     return this.#model.updateBio(bio)
   }
   
-  getTotalRidesForUser () {
-    const data = this.#model
+  async getTotalRidesForUser () {
+    const data = await this.#model.getTotalRidesForUser()
+
+    return data
+
+
   }
 }
 
