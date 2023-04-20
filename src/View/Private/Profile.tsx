@@ -55,7 +55,7 @@ export default function Profile() {
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon icon={faEnvelope} size={28} />
             <View>
-              <Text style={styles.ride_text}>{"userData.email"}</Text>
+              <Text style={styles.ride_text}>{currentUser?.email}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>

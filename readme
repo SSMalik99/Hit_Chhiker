@@ -1,0 +1,5 @@
+### Setup Your SDK for android
+
+```
+export ANDROID_HOME=~/Library/Android/sdk 
+```

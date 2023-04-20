@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>654754394275-dgdi8eago9nh4tggrmf6s5djfhsna9sl.apps.googleusercontent.com</string>
+	<string>1059604790273-i24nq3uhvbstj623oin13mhkjamk8n8o.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.654754394275-dgdi8eago9nh4tggrmf6s5djfhsna9sl</string>
+	<string>com.googleusercontent.apps.1059604790273-i24nq3uhvbstj623oin13mhkjamk8n8o</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDhpIBJMTOFLtIIEsp_7yobKjB3406qj0Q</string>
+	<string>AIzaSyBWtTW4UpI0Lij6SCk_JrHTKjCN8u7qVVM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>654754394275</string>
+	<string>1059604790273</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.MyAppleApp</string>
+	<string>org.reactjs.native.example.Hit-Chhiker</string>
 	<key>PROJECT_ID</key>
-	<string>hitchhiker-26dc6</string>
+	<string>hitchikker-7c2bc</string>
 	<key>STORAGE_BUCKET</key>
-	<string>hitchhiker-26dc6.appspot.com</string>
+	<string>hitchikker-7c2bc.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:654754394275:ios:4b3b57f8c04d3a9fd3cf16</string>
+	<string>1:1059604790273:ios:1a3d0b31620faf264d9400</string>
 </dict>
 </plist>

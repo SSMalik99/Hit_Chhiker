@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1059604790273",
+    "project_id": "hitchikker-7c2bc",
+    "storage_bucket": "hitchikker-7c2bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059604790273:android:d550ae5b81a970d04d9400",
+        "android_client_info": {
+          "package_name": "com.hit_chhiker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059604790273-dqdfb05vauurk6bkur7nd49bvuif9757.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWVd97AE_uaSaKMIaewIiFBB7_5I9pr3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059604790273-dqdfb05vauurk6bkur7nd49bvuif9757.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1059604790273-i24nq3uhvbstj623oin13mhkjamk8n8o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.Hit-Chhiker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

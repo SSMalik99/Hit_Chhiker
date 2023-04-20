@@ -180,8 +180,10 @@ class UserController {
 
   // get current logged in user
   getUser() {
+    
     return this.#model.getUser
   }
+  
 }
 
 export default UserController

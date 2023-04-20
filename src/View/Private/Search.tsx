@@ -8,18 +8,24 @@ import {ScrollView, TextInput} from 'react-native-gesture-handler';
 
 import MapView from 'react-native-maps';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import {faLocation, faLocationPin} from '@fortawesome/free-solid-svg-icons';
 
+import WebView from 'react-native-webview';
+
 export default function Search() {
-  // loadAsync("Abel_400Regular").then((val) => {
-  //   useFonts({
-  //     val
-  //   });
-  // // })
-  // useFonts({
-  //   Abel_400Regular
-  // })
+  
+  let webRef : any = undefined;
+  let [mapCenter, setMapCenter] = useState('-121.913, 37.361');
+
+  const onButtonPress = () => {
+    const [lng, lat] = mapCenter.split(",");
+    webRef.injectJavaScript(`map.setCenter([${parseFloat(lng)}, ${parseFloat(lat)}])`);
+  }
+
+  const handleMapEvent = (event : any) => {
+    setMapCenter(event.nativeEvent.data)
+  }
 
   return (
     <SafeAreaView style={styles.main_container}>
@@ -55,6 +61,7 @@ export default function Search() {
                 marginTop: 20,
               }}>
               <MapView style={styles.map} />
+              
             </View>
 
             <ScrollView
