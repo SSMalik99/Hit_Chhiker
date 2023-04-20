@@ -25,6 +25,10 @@ class UserModel {
         return auth().currentUser
     }
 
+    async changePassword ( password: string) {
+        return await auth().currentUser?.updatePassword(password)
+    }
+
     async updateBio(bio : String) {
         try {
             const res = await axios.post(`https://lively-twill-lion.cyclic.app/users/bio`, {
@@ -104,6 +108,8 @@ class UserModel {
             return err
         }
     }
+
+    
 
     
 

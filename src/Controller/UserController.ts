@@ -17,13 +17,13 @@ class UserController {
 
   // Login user function 
   async login(email: string, password: string) {
-   
+
     if (!email && !password) {
-      
+
       return {
-        success : false,
-        error : "Please enter username and password to login",
-        message : null
+        success: false,
+        error: "Please enter username and password to login",
+        message: null
       }
     }
 
@@ -31,12 +31,12 @@ class UserController {
       let firebaseResponse = await this.#model.login(email, password)
       console.log(firebaseResponse)
       return {
-        success : true,
-        error : null,
-        message : "Logged in successfully"
+        success: true,
+        error: null,
+        message: "Logged in successfully"
       }
-    }catch(err) {
-      
+    } catch (err) {
+
       if (String(err).includes('auth/wrong-password')) {
 
         return {
@@ -53,20 +53,20 @@ class UserController {
           message: null
         };
       }
-      
+
       return {
-        success : false,
-        error : String(err),
-        message : null
+        success: false,
+        error: String(err),
+        message: null
       }
     }
-    
+
 
   }
 
   // Logout function for user
   signOut() {
-    return  this.#model.signOut()
+    return this.#model.signOut()
   }
 
   // signup Button for users
@@ -103,13 +103,13 @@ class UserController {
 
         firebaseResponse.user.updateProfile({
           displayName: fullName,
-          
+
         })
-        
-        await this.#model.saveUserToDb(fullName,email,phoneNumber)
-        
-        
-        
+
+        await this.#model.saveUserToDb(fullName, email, phoneNumber)
+
+
+
 
         return {
           success: true,
@@ -139,9 +139,9 @@ class UserController {
         }
 
         return {
-          success : false,
-          error : String(error),
-          message : null
+          success: false,
+          error: String(error),
+          message: null
         }
 
       }
@@ -184,25 +184,97 @@ class UserController {
 
   // get current logged in user
   getUser() {
-    
+
     return this.#model.getUser()
   }
 
-  getUserFromDb () {
+  getUserFromDb() {
     return this.#model.getUserFromDb()
   }
 
 
-  updateBio (bio : String) {
+  updateBio(bio: String) {
     return this.#model.updateBio(bio)
   }
-  
-  async getTotalRidesForUser () {
+
+  async getTotalRidesForUser() {
     const data = await this.#model.getTotalRidesForUser()
 
     return data
 
 
+  }
+
+  async changeMyPassword(password: string, confirmPassword: string) {
+    if (password && confirmPassword) {
+      
+      if (password !== confirmPassword) {
+        return {
+          success: false,
+          error: "Password and ConfirmPassword field should match",
+          message: null
+        };
+      }
+
+
+      try {
+
+        let firebaseResponse = await this.#model.changePassword(password)
+
+        console.log(firebaseResponse)
+
+        return {
+          success: true,
+          error: null,
+          message: "Password Is Updated Successfully"
+        };
+
+
+      } catch (error) {
+
+        console.log(String(error))
+
+        return {
+          success: false,
+          error: String(error),
+          message: null
+        }
+
+      }
+
+
+
+      return {
+        success: false,
+        error: "Please enter a valid email",
+        message: null
+      };
+      // .then(res => {
+
+      //   console.log(res.user)
+      //   return {
+      //     success: false,
+      //     error : "That email address is already in use!",
+      //     message : null
+      //   };
+
+      // }).catch(err => {
+
+      //     
+
+      // })
+
+      // Function to perform signup
+
+
+    } else {
+
+      return {
+        success: false,
+        error: "Please fill up all the required fields",
+        message: null
+      };
+    }
   }
 }
 

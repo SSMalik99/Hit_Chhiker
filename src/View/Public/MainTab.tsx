@@ -19,6 +19,7 @@ import { ThemeContext, ThemeContextProvider } from '../../Context/ThemeContext';
 import { AuthProvider, useAuthUser } from '../../Context/UserContext';
 import { Appearance } from 'react-native';
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import ChangePassword from '../Private/ChangePassword';
 
 
 
@@ -108,7 +109,22 @@ export default function MainTab() {
                 }}>
                 {props => <Setting />}
               </Tab.Screen>
+
+              <Tab.Screen
+                name={`Password`}
+                
+                options={{
+                  title: 'Change Password',
+                  // tabBarIcon: ({ color }) => (
+                  //   <FontAwesomeIcon icon={faGear} size={24} color={color} />
+                  // ),
+                  tabBarButton: () => null,
+                  
+                }}>
+                {props => <ChangePassword />}
+              </Tab.Screen>
             </Tab.Navigator>
+            
           )}
 
         </NavigationContainer>

@@ -56,12 +56,14 @@ const Setting = () => {
               icon={faGear}
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
-            <View>
-              <Text style={styles.ride_text}>Privacy settings</Text>
-              <Text style={styles.ride_text1} onPress={() => {
+            <View >
+              <Text onPress={() => {
+                console.log("Change Password")
+                navigation.navigate("Password")
                 
-              }}>
-                profile personal details settings
+              }} style={styles.ride_text}>Privacy settings</Text>
+              <Text style={styles.ride_text1} >
+                Change Password
               </Text>
             </View>
           </View>
