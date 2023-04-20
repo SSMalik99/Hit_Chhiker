@@ -47,6 +47,7 @@ export default function Profile() {
 
       setTakenRides(rideData.requestedRide)
       setGivenRides(rideData.totalRides)
+      console.log(takenRides, givenRides)
 
       intialBio = user?.bio
     }
@@ -146,8 +147,8 @@ console.log(phoneNumber)
                   marginLeft: 10
                 }
               }>
-                <View><Text>Given : {givenRides}</Text></View>
-                <View><Text>Taken : {takenRides}</Text></View>
+                <View><Text>Given : {givenRides?? 0}</Text></View>
+                <View><Text>Taken : {takenRides ?? 0}</Text></View>
               </View>
             </View>
           </View>
