@@ -88,7 +88,7 @@ console.log(phoneNumber)
                 autoCapitalize='none' 
                 style = {{
                   color:theme?.text,
-                  padding: Platform.OS =="ios" ? 20 : 0
+                  padding: 20 
                 }}
                 placeholder='Write somethig about yourself.....' 
                   / >
