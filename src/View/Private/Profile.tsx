@@ -1,18 +1,50 @@
-import {StyleSheet, Text, View, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, Dimensions, Pressable, TouchableOpacity, Platform, Alert} from 'react-native';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {ScrollView} from 'react-native-gesture-handler';
-import React from 'react';
+import {ScrollView, TextInput} from 'react-native-gesture-handler';
+import React, { useEffect, useState } from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEnvelope, faUserCircle} from '@fortawesome/free-regular-svg-icons';
 import {faCar, faPencil, faPhone} from '@fortawesome/free-solid-svg-icons';
 import {faWhatsapp} from '@fortawesome/free-brands-svg-icons';
 import { useAuthUser } from '../../Context/UserContext';
+import UserController from '../../Controller/UserController';
+import { useTheme } from '../../Context/ThemeContext';
+import { Button } from '@ant-design/react-native';
 
 export default function Profile() {
 
   const currentUser = useAuthUser()
+  const userController = new UserController()
+  const theme = useTheme()
+  let intialBio = ""
+
+  const [phoneNumber, setPhoneNumber] = useState( "Loading...")
+  const [bio, setBio] = useState("Write about youself")
+
+  const updateBio = async () => {
+    let res = await userController.updateBio(bio)
+    if(!res.success) {
+      Alert.alert("Success", res.message)
+    }else {
+      Alert.alert("Error", res.message)
+    }
+  }
+  useEffect( () => {
+    const findUser = async () => {
+      const user = await userController.getUserFromDb()
+      setPhoneNumber(user?.phoneNumber)
+      setBio(user?.bio)
+      intialBio = user?.bio
+    }
+
+    findUser()
+
+  }, [])
+
+
   
+console.log(phoneNumber)
 
   return (
     <SafeAreaView style={styles.main_container}>
@@ -20,18 +52,50 @@ export default function Profile() {
         {/* <AppHeader includeLogin={false} /> */}
 
         <View style={styles.main_wrapper}>
-          <View style={styles.ride_external_row_icon}>
+          {/* <View style={styles.ride_external_row_icon}>
             <FontAwesomeIcon icon={faUserCircle} size={28} />
-          </View>
+          </View> */}
           <View style={styles.ride_external_row1}>
             <Text style={styles.ride_text2}>{currentUser?.displayName} </Text>
           </View>
           <View style={styles.ride_external_row1}>
             <Text style={styles.ride_text2}>About:</Text>
           </View>
-          <Text style={styles.ride_text3} >
-            Write somethig about yourself.....
-          </Text>
+          <View>
+            <View style={styles.bio_text}>
+              <TextInput
+                multiline
+                onChangeText={value => setBio(value)}
+                value={bio}
+                cursorColor={theme?.text} 
+                selectionColor={theme?.text} 
+                placeholderTextColor={theme?.text} 
+                autoCorrect={false}
+                autoCapitalize='none' 
+                style = {{
+                  color:theme?.text,
+                  padding: Platform.OS =="ios" ? 20 : 0
+                }}
+                placeholder='Write somethig about yourself.....' 
+                  / >
+                  
+                
+                
+            </View>
+            <TouchableOpacity onPress={() => updateBio()}   style={
+                  {
+                    marginTop:10,
+                    height: 50,
+                    width : 100,
+                    borderRadius: 10,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: 'white',
+                  }
+                
+                }><Text >Update</Text></TouchableOpacity>
+
+          </View>
         </View>
 
         <View style={styles.wrapper}>
@@ -43,13 +107,15 @@ export default function Profile() {
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon icon={faPhone} size={28} />
             <View>
-              <Text style={styles.ride_text}>{"userData.phone"}</Text>
+              <Text  style={styles.ride_text}>
+                {phoneNumber}
+              </Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon icon={faWhatsapp} size={28} />
             <View>
-              <Text style={styles.ride_text}>{"userData.phone"}</Text>
+              <Text style={styles.ride_text}>{phoneNumber}</Text>
             </View>
           </View>
           <View style={styles.ride_external_row}>
@@ -61,7 +127,15 @@ export default function Profile() {
           <View style={styles.ride_external_row}>
             <FontAwesomeIcon icon={faCar} size={28} />
             <View>
-              <Text style={styles.ride_text}>Your Ride</Text>
+              <Text style={styles.ride_text}>Rides:</Text>
+              <View style={
+                {
+                  marginLeft: 10
+                }
+              }>
+                <View><Text>Given : {0}</Text></View>
+                <View><Text>Taken : {0}</Text></View>
+              </View>
             </View>
           </View>
         </View>
@@ -113,8 +187,20 @@ const styles = StyleSheet.create({
   ride_text: {
     fontSize: 20,
     color: '#000000',
+    marginLeft:4
     // fontFamily:"Abel_400Regular",
   },
+
+  bio_text : {
+    minWidth : Dimensions.get("window").width/1.2,
+    maxWidth : Dimensions.get("window").width/1.2,
+    borderWidth : 1,
+    marginTop : 4,
+    marginRight:4,
+    borderColor:"#ffffff",
+    borderRadius: 4
+  },
+
   ride_text1: {
     fontSize: 15,
     color: '#000000',

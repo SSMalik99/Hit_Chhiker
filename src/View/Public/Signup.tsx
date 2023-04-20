@@ -15,8 +15,6 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {validateEmail} from '../../Util/HelperUtil';
 
-import {signUpUser} from '../../Services/FirebaseService';
-
 
 import {
   faUserCircle,

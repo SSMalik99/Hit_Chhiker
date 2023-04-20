@@ -1,3 +1,4 @@
+import axios from "axios"
 import { AuthenticationResponse, UserLoginInterFace } from "../Interface/UserInterface"
 import UserModel from "../Models/UserModel"
 import { validateEmail } from "../Util/HelperUtil"
@@ -105,6 +106,9 @@ class UserController {
           
         })
         
+        await this.#model.saveUserToDb(fullName,email,phoneNumber)
+        
+        
         
 
         return {
@@ -181,9 +185,21 @@ class UserController {
   // get current logged in user
   getUser() {
     
-    return this.#model.getUser
+    return this.#model.getUser()
+  }
+
+  getUserFromDb () {
+    return this.#model.getUserFromDb()
+  }
+
+
+  updateBio (bio : String) {
+    return this.#model.updateBio(bio)
   }
   
+  getTotalRidesForUser () {
+    const data = this.#model
+  }
 }
 
 export default UserController
