@@ -7,21 +7,13 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEnvelope, faUserCircle} from '@fortawesome/free-regular-svg-icons';
 import {faCar, faPencil, faPhone} from '@fortawesome/free-solid-svg-icons';
 import {faWhatsapp} from '@fortawesome/free-brands-svg-icons';
+import { useAuthUser } from '../../Context/UserContext';
 
 export default function Profile() {
-  // loadAsync("Abel_400Regular").then((val) => {
-  //   useFonts({
-  //     val
-  //   });
-  // })
-  // useFonts({
-  //   Abel_400Regular
-  // })
-  //   "email": "Aaa",
-  // "fullName": "Hxdhdh",
-  // "password": "123456",
-  // "phone": "6494959",
-  // "username": "Xbbxb",
+
+  const currentUser = useAuthUser()
+  
+
   return (
     <SafeAreaView style={styles.main_container}>
       <ScrollView>
@@ -32,12 +24,12 @@ export default function Profile() {
             <FontAwesomeIcon icon={faUserCircle} size={28} />
           </View>
           <View style={styles.ride_external_row1}>
-            <Text style={styles.ride_text2}>{"userData.username"} </Text>
+            <Text style={styles.ride_text2}>{currentUser?.displayName} </Text>
           </View>
           <View style={styles.ride_external_row1}>
             <Text style={styles.ride_text2}>About:</Text>
           </View>
-          <Text style={styles.ride_text3}>
+          <Text style={styles.ride_text3} >
             Write somethig about yourself.....
           </Text>
         </View>

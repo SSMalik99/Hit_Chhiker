@@ -14,7 +14,6 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {signIn} from '../../Services/FirebaseService';
 
 import {faEye, faEyeSlash} from '@fortawesome/free-regular-svg-icons';
 import {faLock, faUserCircle} from '@fortawesome/free-solid-svg-icons';

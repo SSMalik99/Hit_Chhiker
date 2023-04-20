@@ -46,8 +46,6 @@ export default function MainTab() {
 
   const colorScheme = Appearance.getColorScheme();
 
-  console.log(currentUser)
-
 
   return (
 

@@ -3,12 +3,18 @@ import UserModel from "../Models/UserModel"
 import { validateEmail } from "../Util/HelperUtil"
 
 
+/**
+ * User Controller is responsible for every type of functionality from view to controller
+ */
 class UserController {
+
+
   #model: UserModel
   constructor() {
     this.#model = new UserModel()
   }
 
+  // Login user function 
   async login(email: string, password: string) {
    
     if (!email && !password) {
@@ -57,10 +63,12 @@ class UserController {
 
   }
 
+  // Logout function for user
   signOut() {
     return  this.#model.signOut()
   }
 
+  // signup Button for users
   async signUp(fullName: string, email: string, password: string, confirmPassword: string, phoneNumber: string): Promise<AuthenticationResponse> {
 
     if (fullName && email && password && confirmPassword) {
@@ -94,7 +102,10 @@ class UserController {
 
         firebaseResponse.user.updateProfile({
           displayName: fullName,
+          
         })
+        
+        
 
         return {
           success: true,
@@ -167,6 +178,7 @@ class UserController {
 
   }
 
+  // get current logged in user
   getUser() {
     return this.#model.getUser
   }
