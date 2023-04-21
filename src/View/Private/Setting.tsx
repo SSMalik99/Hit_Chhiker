@@ -5,6 +5,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Alert,
+  Linking,
 } from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
@@ -44,7 +45,10 @@ const Setting = () => {
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
             <View>
-              <Text style={styles.ride_text}>User Info</Text>
+              <Text onPress={() => {
+                navigation.navigate("Profile")
+                
+              }} style={styles.ride_text}>User Info</Text>
               <Text style={styles.ride_text1}>
                 {currentUser?.displayName}, {currentUser?.email} etc.
               </Text>
@@ -74,7 +78,9 @@ const Setting = () => {
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
             <View>
-              <Text style={styles.ride_text}>Privacy policy</Text>
+            <Text onPress={() => {
+              Linking.openURL("https://www.termsfeed.com/live/2db4508e-3cec-449a-886e-a76857d93b4f");
+              }} style={styles.ride_text}>Privacy policy</Text>
               <Text style={styles.ride_text1}>policy info in detail</Text>
             </View>
           </View>
@@ -85,7 +91,9 @@ const Setting = () => {
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
             <View>
-              <Text style={styles.ride_text}>About us</Text>
+            <Text onPress={() => {
+              Linking.openURL("https://anorgeous.dev/");
+              }} style={styles.ride_text}>About us</Text>
               <Text style={styles.ride_text1}>
                 company and ride app details
               </Text>
@@ -98,7 +106,9 @@ const Setting = () => {
               // style={[styles.icon, styles.userIcon, styles.iconContainer]}
             />
             <View>
-              <Text style={styles.ride_text}>Help</Text>
+              <Text onPress={() => {
+              Linking.openURL("https://anorgeous.dev/");
+              }} style={styles.ride_text}>Help</Text>
               <Text style={styles.ride_text1}>user help , query etc.</Text>
             </View>
           </View>
