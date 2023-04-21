@@ -83,7 +83,7 @@ class UserModel {
     async getUserFromDb() {
         try {
             const res = await axios.get(`https://lively-twill-lion.cyclic.app/users/${auth().currentUser?.email}`);
-            console.log(res.data.data);
+            
             return res.data.data
 
         } catch (err) {
@@ -99,7 +99,7 @@ class UserModel {
                 email: email,
                 phoneNumber: phoneNumber
             });
-            console.log(res.data);
+            
             return res.data
 
         } catch (err) {

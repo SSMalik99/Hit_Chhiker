@@ -31,13 +31,13 @@ export default function Search() {
 
   const [postalCode, setPostalCode] = useState<any>()
   const [toPostalCode, setToPostalCode] = useState<any>()
-  
+
   // check  user want a ride or giving a ride
   const [postRide, setPostRide] = useState(false)
 
   // setPlacesId
-  const [fromPlaceId, setFromPlaceId] = useState()
-  const [toPlaceId, setToPlaceId] = useState()
+  const [fromPlaceId, setFromPlaceId] = useState<string | null >(null)
+  const [toPlaceId, setToPlaceId] = useState<string | null>(null)
 
   // get rides form the api
   const [rides, setRides] = useState([])
@@ -57,44 +57,50 @@ export default function Search() {
     setDatePickerVisibility(false);
   };
 
-  const handleConfirm = (date : Date) => {
+  const handleConfirm = (date: Date) => {
     setDate(date)
     hideDatePicker();
 
   };
 
+
+
   const showEmptyAlert = () => {
     // Alert.alert("No Rides", "No Rides available for the searched query.")
   }
 
-  const postMyRide = () => {
-    console.log(fromAddress, toAddress, postalCode, toPostalCode, date, fromPlaceId, toPlaceId, postRide)
+  const postMyRide = async () => {
+    console.log(fromAddress, toAddress, postalCode, toPostalCode, date? date: new Date(), fromPlaceId, toPlaceId, postRide)
+    const response = await rideController.createRide(fromAddress, toAddress, postalCode, toPostalCode, date? date: new Date(), fromPlaceId, toPlaceId, postRide)
+    if(!response?.success) {
+      Alert.alert("Error", response?.message)
+    }
   }
 
-  const updateFromAddress = async (data : any) => {
-    setFromAddress(data?.place_id)
+  const updateFromAddress = async (data: any) => {
+    setFromPlaceId(data?.place_id)
 
     let response = await rideController.getPlaceDetail(data?.place_id)
-    
+
     if (!response.success) {
       Alert.alert("ERROR", response.message)
-    }else {
+    } else {
       setPostalCode(response.postalCode)
       setFromAddress(response.address)
     }
   }
 
-  const updateToAddress = async (data : any) => {
-    
-    setToAddress(data?.place_id)
+  const updateToAddress = async (data: any) => {
+
+    setToPlaceId(data?.place_id)
     let response = await rideController.getPlaceDetail(data?.place_id)
-    
-      if (!response.success) {
-        Alert.alert("ERROR", response.message)
-      }else {
-        setToAddress(response.postalCode)
-        setToAddress(response.address)
-      }
+
+    if (!response.success) {
+      Alert.alert("ERROR", response.message)
+    } else {
+      setToAddress(response.address)
+      setToPostalCode(response.postalCode)
+    }
   }
 
 
@@ -143,7 +149,7 @@ export default function Search() {
 
           </View>
 
-          
+
 
           <View style={styles.search_container}>
             <Text>
@@ -153,8 +159,8 @@ export default function Search() {
               placeholder='End Location'
               onPress={(data, details = null) => {
                 // 'details' is provided when fetchDetails = true
-               updateToAddress(details ?? data)
-                
+                updateToAddress(details ?? data)
+
               }}
               styles={
                 {
@@ -166,42 +172,42 @@ export default function Search() {
                 key: "AIzaSyA04lIksf061PPNP_Z7-jCwxQCKbEwEXTQ",
                 language: 'en',
                 components: 'country:ca',
-                
+
               }}
             />
           </View>
 
 
-          <View style = {{
-            marginTop:10,
+          <View style={{
+            marginTop: 10,
             marginBottom: 10
-            
+
           }}>
 
 
-            <Text onPress={showDatePicker}  
+            <Text onPress={showDatePicker}
               style={
                 {
-                  width:100,
-                  textAlign:"center",
-                  padding:10,
-                  color:selectedTheme?.blueText,
-                  
+                  width: 100,
+                  textAlign: "center",
+                  padding: 10,
+                  color: selectedTheme?.blueText,
+
 
                 }
               }
-              >
+            >
               Select Date
             </Text>
 
 
-              <DateTimePickerModal
-                isVisible={isDatePickerVisible}
-                mode="date"
-                display='inline'
-                onConfirm={handleConfirm}
-                onCancel={hideDatePicker}
-              />
+            <DateTimePickerModal
+              isVisible={isDatePickerVisible}
+              mode="date"
+              display='inline'
+              onConfirm={handleConfirm}
+              onCancel={hideDatePicker}
+            />
           </View>
 
           <BouncyCheckbox
@@ -221,7 +227,7 @@ export default function Search() {
 
             }}
 
-            onPress={(isChecked: boolean) => { 
+            onPress={(isChecked: boolean) => {
               setPostRide(isChecked)
             }}
           />
@@ -259,7 +265,7 @@ export default function Search() {
           </View>
 
           {rides.length > 0 ? <RidesView rides={rides} /> : ""}
-          
+
 
 
         </View>
