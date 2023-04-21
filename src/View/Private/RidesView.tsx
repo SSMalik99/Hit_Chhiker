@@ -2,52 +2,7 @@ import { Dimensions, StyleSheet, Text, View } from "react-native"
 import { ScrollView } from "react-native-gesture-handler"
 
 export const RidesView = ({rides : []}) => {
-    return <ScrollView
-            style={{
-              backgroundColor: '#128892',
-              marginTop: 10,
-              borderRadius: 30,
-
-            }}>
-            <View>
-              
-              <View
-                style={{
-                  padding: 10,
-                  marginTop: 10,
-                  borderTopWidth: 2,
-                  borderTopColor: 'white',
-                  width: Dimensions.get("window").width
-                }}>
-                <Text style={styles.ride_text}>User Name : John Junior</Text>
-
-                <View style={styles.ride_internal_row}>
-                  <Text style={styles.ride_text}>Ride:</Text>
-                  <Text style={styles.ride_text}>
-                    Scarborough to Mississauga
-                  </Text>
-                </View>
-
-                <View style={styles.ride_internal_row}>
-                  <Text style={styles.ride_text}>Distance:</Text>
-                  <Text style={styles.ride_text}>
-                    66.5 km via Ontario 407
-                  </Text>
-                </View>
-
-                <View style={styles.ride_internal_row}>
-                  <View>
-                    <Text style={styles.ride_text}>Date:</Text>
-                    <Text style={styles.ride_text}>DD/MM//YYYY</Text>
-                  </View>
-                  <View>
-                    <Text style={styles.ride_text}>Time:</Text>
-                    <Text style={styles.ride_text}>8:00 Amm</Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-          </ScrollView>
+    return 
 }
 
 

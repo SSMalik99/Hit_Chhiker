@@ -80,15 +80,61 @@ class RideController {
             }
 
             let isApostRide = postRide ?? false
+            try {
+                let response = await this.#model.createRide(fromAddress, toAddress, postalCode, toPostalCode, date, fromPlaceId, toPlaceId, isApostRide)
 
-            this.#model.createRide(fromAddress, toAddress, postalCode, toPostalCode, date, fromPlaceId, toPlaceId, isApostRide)
+                return {
+                    success : true,
+                    message: response.message,
+                }    
+            } catch (error) {
 
-            return {
-                success : true,
-                message: "ON the wheel",
+                return {
+                    success : true,
+                    message: "Some Error Occured, Please try later",
+                }   
+                
             }
 
+            
+
         
+    }
+
+    async findRides (
+        postalCode : string, 
+        toPostalCode : string ,
+        date : Date | null
+        ) {
+
+            console.log(postalCode, toPostalCode, date)
+
+            if(!postalCode || !toPostalCode  ) {
+                
+                return {
+                    success : false,
+                    message: "Please provide reaquired data",
+                }
+
+            }
+
+            if(!date) {
+                return {
+                    success : false,
+                    message: "Please select data",
+                    rides : []
+                }
+            }
+            
+
+            const response = await this.#model.findRides(postalCode, toPostalCode, date)
+            return {
+                success : true,
+                message: "Please select data",
+                rides : response.data
+            }
+
+
     }
 }
 

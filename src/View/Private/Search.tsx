@@ -36,14 +36,14 @@ export default function Search() {
   const [postRide, setPostRide] = useState(false)
 
   // setPlacesId
-  const [fromPlaceId, setFromPlaceId] = useState<string | null >(null)
+  const [fromPlaceId, setFromPlaceId] = useState<string | null>(null)
   const [toPlaceId, setToPlaceId] = useState<string | null>(null)
 
   // get rides form the api
   const [rides, setRides] = useState([])
 
   // get date if not current date will be applied
-  const [date, setDate] = useState<Date>()
+  const [date, setDate] = useState<Date | null>(null)
 
   const rideController = new RideController()
 
@@ -70,11 +70,32 @@ export default function Search() {
   }
 
   const postMyRide = async () => {
-    console.log(fromAddress, toAddress, postalCode, toPostalCode, date? date: new Date(), fromPlaceId, toPlaceId, postRide)
-    const response = await rideController.createRide(fromAddress, toAddress, postalCode, toPostalCode, date? date: new Date(), fromPlaceId, toPlaceId, postRide)
-    if(!response?.success) {
-      Alert.alert("Error", response?.message)
+
+
+    if (postRide) {
+      const response = await rideController.createRide(fromAddress, toAddress, postalCode, toPostalCode, date ? date : new Date(), fromPlaceId, toPlaceId, postRide)
+      if (!response?.success) {
+        Alert.alert("Error", response?.message)
+      }
+
+      Alert.alert("Success", "Ride is created succesfully")
+
+    } else {
+      const response = await rideController.findRides(postalCode, toPostalCode, date)
+
+      if (!response?.success) {
+        Alert.alert("Error", response?.message)
+      }
+
+      console.log(response.rides.length)
+
+      setRides(response.rides)
+
+      // if (rides.length <= 0) {
+      //   noRideAvailable()
+      // }
     }
+
   }
 
   const updateFromAddress = async (data: any) => {
@@ -88,6 +109,12 @@ export default function Search() {
       setPostalCode(response.postalCode)
       setFromAddress(response.address)
     }
+
+  }
+
+  const noRideAvailable = () => {
+    Alert.alert("Info!", "No Ride available for the time being")
+
   }
 
   const updateToAddress = async (data: any) => {
@@ -99,6 +126,7 @@ export default function Search() {
       Alert.alert("ERROR", response.message)
     } else {
       setToAddress(response.address)
+      
       setToPostalCode(response.postalCode)
     }
   }
@@ -264,7 +292,102 @@ export default function Search() {
 
           </View>
 
-          {rides.length > 0 ? <RidesView rides={rides} /> : ""}
+          {rides.length > 0 ?
+            <ScrollView
+              style={{
+                backgroundColor: '#128892',
+                marginTop: 10,
+                borderRadius: 30,
+
+              }}>
+              {rides.map(ride => {
+
+                return <View key={(new Date()).toTimeString() + "Clog" +( Math.random()*10 +10)}>
+
+                <View
+                  style={{
+                    padding: 10,
+                    marginTop: 10,
+                    borderTopWidth: 2,
+                    borderTopColor: 'white',
+                    width: Dimensions.get("window").width
+                  }}>
+
+                  <Text style={styles.ride_text}>Contact Email : {ride?.contactEmail}</Text>
+
+
+                  <View style={styles.ride_internal_row}>
+                    
+                    <Text style={{
+                      ...styles.ride_text,
+                      marginTop:20
+                    }}>
+                      Start Location:
+                    </Text>
+                  </View>
+                  <View style={styles.ride_internal_row}>
+                    
+                    <Text style={styles.ride_text}>
+                      {ride?.from}
+                    </Text>
+                  </View>
+
+
+                  <View style={styles.ride_internal_row}>
+                    
+                    <Text style={{
+                      ...styles.ride_text,
+                      marginTop:20
+                    }}>
+                      End Location:
+                    </Text>
+                  </View>
+                  <View style={styles.ride_internal_row}>
+                    {/* <Text style={styles.ride_text}>To:</Text> */}
+                    <Text style={styles.ride_text}>
+                      {ride?.to}
+                    </Text>
+                  </View>
+
+                  
+
+                  <View style={styles.ride_internal_row}>
+                    
+                    <Text style={{
+                      ...styles.ride_text,
+                      marginTop:20
+                    }}>
+                      Ride Date
+                    </Text>
+                  </View>
+                  <View style={styles.ride_internal_row}>
+                    <View>
+                      
+                      <Text style={styles.ride_text}>{new Date(Date.parse(ride.date)).toLocaleString()}</Text>
+                    </View>
+
+                  </View>
+
+                  <View style={styles.ride_internal_row}>
+                    
+                    <Text style={{
+                      ...styles.ride_text,
+                      marginTop:20
+                    }}>
+                      Contact Number
+                    </Text>
+                  </View>
+                  <View style={styles.ride_internal_row}>
+                    <View>
+                      
+                      <Text style={styles.ride_text}>{ride?.contactNumber}</Text>
+                    </View>
+
+                  </View>
+                </View>
+              </View>
+              })}
+            </ScrollView> : ""}
 
 
 
