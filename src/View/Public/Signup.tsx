@@ -44,10 +44,11 @@ export default function Signup() {
 
   
   const themeContext = useTheme()
-  const userController = new UserController()
+  const userController = new UserController() // initialziing user controller 
 
   const [hideConfirmPassword, setConfirmPasswordHideFlag] =
     useState<boolean>(true);
+    
 
   const navigation = useNavigation();
 

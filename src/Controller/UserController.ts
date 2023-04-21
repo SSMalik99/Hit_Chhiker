@@ -90,10 +90,10 @@ class UserController {
       }
 
       // Assign signup data to UserAuthentiocation type variable
-      const signupData: UserLoginInterFace = {
-        username: email,
-        password: password,
-      };
+      // const signupData: UserLoginInterFace = {
+      //   username: email,
+      //   password: password,
+      // };
 
       try {
 
@@ -106,6 +106,7 @@ class UserController {
 
         })
 
+        // store our data to mongo db
         await this.#model.saveUserToDb(fullName, email, phoneNumber)
 
 

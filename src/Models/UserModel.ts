@@ -39,7 +39,7 @@ class UserModel {
             console.log(res.data.data);
             return  {
                 success : true,
-                message: "Updated Success fully"
+                message: "Updated Successfully"
             }
 
         } catch (err) {
@@ -92,6 +92,7 @@ class UserModel {
             return auth().currentUser
         }
     }
+
     async saveUserToDb( fullName: string, email: string, phoneNumber: string ) {
         try {
             const res = await axios.post("https://lively-twill-lion.cyclic.app/users", {

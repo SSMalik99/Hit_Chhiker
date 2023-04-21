@@ -14,36 +14,49 @@ import { Button } from '@ant-design/react-native';
 
 export default function Profile() {
 
+  // 
   const currentUser = useAuthUser()
+  
+  // user controller for the interaction with database
   const userController = new UserController()
+
+
   const theme = useTheme()
+
   let intialBio = ""
+
 
   const [phoneNumber, setPhoneNumber] = useState( "Loading...")
   const [bio, setBio] = useState("Write about youself")
   const [takenRides, setTakenRides] = useState(0)
   const [givenRides, setGivenRides] = useState(0)
-
+  
 
 
   const updateBio = async () => {
 
     let res = await userController.updateBio(bio)
+    // show alert message with the response from the database
     if(!res.success) {
-      Alert.alert("Success", res.message)
-    }else {
       Alert.alert("Error", res.message)
+    }else {
+      Alert.alert("Success", res.message)
     }
 
   }
+
+
+
+  // find the user deatil when page is goint to render first time
   useEffect( () => {
 
+    // lcoal funciton to find data from mongodb 
     const findUser = async () => {
-      const user = await userController.getUserFromDb()
-      const rideData = await userController.getTotalRidesForUser()
+      const user = await userController.getUserFromDb() // get user from mongo db
+      const rideData = await userController.getTotalRidesForUser() // get total rides for the user
 
-      setPhoneNumber(user?.phoneNumber)
-      setBio(user?.bio)
+      setPhoneNumber(user?.phoneNumber) // use hook to set up the phone number
+      setBio(user?.bio) // set bio for the user by using the hook
 
       setTakenRides(rideData.requestedRide)
       setGivenRides(rideData.totalRides)
@@ -57,10 +70,13 @@ export default function Profile() {
   }, [])
 
 
+
+
   
 console.log(phoneNumber)
 
   return (
+
     <SafeAreaView style={styles.main_container}>
       <ScrollView>
         {/* <AppHeader includeLogin={false} /> */}
